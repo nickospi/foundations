@@ -1,2 +1,1 @@
 # foundations
-# Nikos Pitsiladis
