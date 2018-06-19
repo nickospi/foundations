@@ -40,7 +40,7 @@ date_string = right_now.strftime("%B %d, %Y")
 requests.post(
         "https://api.mailgun.net/v3/sandboxd37dc184d2cf48f4aada515cae6f4695.mailgun.org/messages",
         auth=("api", "API_KEY"),
-        data={"from": "Excited User <mailgun@sandboxd37dc184d2cf48f4aada515cae6f4695.mailgun.org>",
+        data={"from": "NP Weather <mailgun@sandboxd37dc184d2cf48f4aada515cae6f4695.mailgun.org>",
               "to": ["n*******@gmail.com"],
               "subject": ("8AM Weather forecast:", date_string),
               "text":mail_text}) 
