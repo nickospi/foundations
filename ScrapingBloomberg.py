@@ -4,7 +4,6 @@
 # In[837]:
 
 
-from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
@@ -88,6 +87,8 @@ date_string = right_now.strftime("%-I%p")
 
 
 #saving to csv
+import pandas as pd
+import requests
 df = pd.DataFrame(Bloomberg_Now)
 df.to_csv("Bloomberg_Now.csv", index=False)
 
@@ -95,7 +96,7 @@ df.to_csv("Bloomberg_Now.csv", index=False)
 # In[850]:
 
 
-response = requests.post(
+requests.post(
         "https://api.mailgun.net/v3/sandboxd37dc184d2cf48f4aada515cae6f4695.mailgun.org/messages",
         auth=("api", "*****************************"),
         files=[("Bloomberg_Now {}".format(date_string_attchmnt), open("Bloomberg_Now.csv"))],
@@ -103,5 +104,4 @@ response = requests.post(
               "to": ["n******@gmail.com"],
               "subject": "Here is your {} briefing".format(date_string),
               "text": "Here is your briefing from Bloomberg"}) 
-response.text
 
