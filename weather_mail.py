@@ -8,11 +8,11 @@
 import requests
 url = 'https://api.darksky.net/forecast/API_KEY/40.7128,-74.0060?units=si'
 response = requests.get(url)
-data_shr = response.json()
-temp = data_shr ["currently"]["temperature"]
-summary = data_shr ["currently"]["summary"]
+data_ny = response.json()
+temp = data_ny ["currently"]["temperature"]
+summary = data_ny ["currently"]["summary"]
 hightemp = data_shr["daily"]["data"][0]["temperatureHigh"] 
-for feeling in data_shr ["daily"]["data"]:
+for feeling in data_ny ["daily"]["data"]:
     if hightemp >= 36:
         feeling = 'super-hot'
     elif 35 >= hightemp >= 20:
@@ -23,8 +23,8 @@ for feeling in data_shr ["daily"]["data"]:
         feeling = 'cold'
     else:
         feeling = 'freezing'
-lowtemp = data_shr["daily"]["data"][0]["temperatureLow"]
-precip_prob = data_shr["daily"]["data"][0]["precipProbability"]
+lowtemp = data_ny["daily"]["data"][0]["temperatureLow"]
+precip_prob = data_ny["daily"]["data"][0]["precipProbability"]
 if precip_prob > 0:
     rain = "Take your umbrella!"
 else:
