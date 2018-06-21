@@ -31,11 +31,11 @@ else:
     rain = "It's not going to rain or snow today." 
 #print ("Right now it is", temp,"degrees out and", summary,".Today will be",feeling,"with a high of",hightemp,"and a low of",lowtemp,".",rain)
 #putting mail text in a variable
-mail_text = "Right now it is {} degrees out and {}.Today will be {} with a high of {} and a low of {}.{}".format(temp, summary,feeling,hightemp,lowtemp,rain)
+mail_text="Right now it is {} degrees out and {}.Today will be {} with a high of {} and a low of {}.{}".format(temp, summary,feeling,hightemp,lowtemp,rain)
 #date for mail subject
 import datetime
-right_now = datetime.datetime.now()
-date_string = right_now.strftime("%B %d, %Y")
+right_now=datetime.datetime.now()
+date_string=right_now.strftime("%B %d, %Y")
 #setting up mailgun
 requests.post(
         "https://api.mailgun.net/v3/sandboxd37dc184d2cf48f4aada515cae6f4695.mailgun.org/messages",
